@@ -13,17 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.lifecycleScope
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.newsapp.sk.domain.usecases.AppEntryUseCases
 import com.newsapp.sk.presentation.navgraph.NavGraph
-import com.newsapp.sk.presentation.onboarding.OnBoardingScreen
-import com.newsapp.sk.presentation.onboarding.OnBoardingViewModel
 import com.newsapp.sk.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -45,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 val systemController = rememberSystemUiController()
 
                 SideEffect {
-                    systemController.setNavigationBarColor(
+                    systemController.setStatusBarColor(
                         color = Color.Transparent,
                         darkIcons = !isSystemInDarkMode
                     )
