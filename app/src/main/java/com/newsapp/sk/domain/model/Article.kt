@@ -1,5 +1,9 @@
 package com.newsapp.sk.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Article(
 
     var author: String = "",
@@ -8,6 +12,6 @@ data class Article(
     var publishedAt: String = "",
     var source: Source = Source(),
     var title: String = "",
-    var url: String = "",
+   @PrimaryKey var url: String = "",
     var urlToImage: String = ""
 )

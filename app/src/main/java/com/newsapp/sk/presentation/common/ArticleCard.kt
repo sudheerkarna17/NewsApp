@@ -29,6 +29,7 @@ import com.newsapp.sk.domain.model.Article
 import com.newsapp.sk.presentation.Dimens.ArticleCardSize
 import com.newsapp.sk.presentation.Dimens.ExtraSmallPadding
 import com.newsapp.sk.presentation.Dimens.ExtraSmallPadding2
+import com.newsapp.sk.presentation.Dimens.ExtraSmallPadding3
 import com.newsapp.sk.presentation.Dimens.SmallIconSize
 
 @Composable
@@ -45,7 +46,7 @@ fun ArticleCard(
             modifier = Modifier
                 .size(ArticleCardSize)
                 .clip(MaterialTheme.shapes.medium),
-            model = ImageRequest.Builder(context).data(article.urlToImage),
+            model = ImageRequest.Builder(context).data(article.urlToImage).build(),
             contentScale = ContentScale.Crop,
             contentDescription = null
         )
@@ -53,7 +54,7 @@ fun ArticleCard(
         //Header and Description
         Column(
             modifier = Modifier
-                .padding(horizontal = ExtraSmallPadding)
+                .padding(start = ExtraSmallPadding3)
                 .height(ArticleCardSize),
             verticalArrangement = Arrangement.SpaceBetween
 
