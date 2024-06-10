@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -70,47 +71,45 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     //Splash Api
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation(libs.androidx.core.splashscreen)
 
     // Compose Navigation
     val nav_version = "2.6.0"
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation(libs.androidx.navigation.compose)
 
     // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.49")
-    kapt("com.google.dagger:hilt-android-compiler:2.49")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     // Retrofit
     val retrofit_version = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     // Coil
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(libs.coil.compose)
 
     // Datastore
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation(libs.androidx.datastore.preferences)
 
     // Compose Foundation
-    implementation("androidx.compose.foundation:foundation:1.4.3")
+    implementation(libs.androidx.foundation)
 
     // Accompanist
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
+    implementation(libs.accompanist.systemuicontroller)
 
     // Paging 3
     val paging_version = "3.1.1"
-    implementation("androidx.paging:paging-runtime:$paging_version")
-    implementation("androidx.paging:paging-compose:3.2.0-rc01")
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.androidx.paging.compose)
 
     // Room
     val room_version = "2.5.2"
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
-}
+    implementation(libs.kotlinx.coroutines.android)
 
-kapt {
-    correctErrorTypes = true
 }

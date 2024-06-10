@@ -15,7 +15,7 @@ class SearchViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _state = mutableStateOf(SearchState())
-    private val state: State<SearchState> = _state
+    val state: State<SearchState> = _state
     fun onEvent(event: SearchEvent) {
         when (event) {
             is SearchEvent.UpdateSearchQuery -> {
